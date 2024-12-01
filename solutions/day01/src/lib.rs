@@ -1,8 +1,10 @@
-pub fn part1() -> i64 {
+
+pub fn part1(input: &Vec<String>) -> i64 {
+    println!("{:?}", input);
     42
 }
 
-pub fn part2() -> i64 {
+pub fn part2(input: &Vec<String>) -> i64 {
     84
 }
 
@@ -13,13 +15,16 @@ mod tests {
 
     #[test]
     fn part1_works() {
-        let result = part1();
+        let test_input = vec!["foo".to_string(), "bar".to_string()];
+        let result = part1(&test_input);
+        let result = part1(&test_input);
         assert_eq!(result, 42);
     }
 
     #[test]
     fn part2_works() {
-        let result = part2();
+        let test_input = vec!["foo".to_string(), "bar".to_string()];
+        let result = part2(&test_input);
         assert_eq!(result, 84);
     }
 }
