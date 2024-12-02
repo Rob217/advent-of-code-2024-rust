@@ -1,6 +1,7 @@
 use std::env;
 use utils;
 use day01;
+use day02;
 
 fn main() {
 
@@ -17,6 +18,7 @@ fn main() {
 
     match day {
         "day01" => run_day(day01::part1, day01::part2, "Day 01", &input),
+        "day02" => run_day(day02::part1, day02::part2, "Day 02", &input),
         _ => {
             eprintln!("Invalid day specified");
             std::process::exit(1);

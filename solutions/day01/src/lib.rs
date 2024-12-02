@@ -1,6 +1,3 @@
-use std::collections::HashMap;
-use utils;
-
 
 pub fn part1(input: &Vec<String>) -> i64 {
     let (mut first, mut second) = convert_vec_of_strings_into_two_vecs_of_integers(input);
@@ -70,6 +67,8 @@ fn multiply_value_by_count_in_occurrences_hashmap(value: i64, occurrences: &std:
 #[cfg(test)]
 mod tests {
     use super::*;
+    use utils;
+    use std::collections::HashMap;
 
     #[test]
     fn part1_works() {
