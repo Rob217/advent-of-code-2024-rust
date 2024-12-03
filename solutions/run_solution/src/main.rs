@@ -2,6 +2,7 @@ use std::env;
 use utils;
 use day01;
 use day02;
+use day03;
 use dayXX;
 
 fn main() {
@@ -20,6 +21,7 @@ fn main() {
     match day {
         "day01" => run_day(day01::part1, day01::part2, "day01", &input),
         "day02" => run_day(day02::part1, day02::part2, "day02", &input),
+        "day03" => run_day(day03::part1, day03::part2, "day03", &input),
         "dayXX" => run_day(dayXX::part1, dayXX::part2, "dayXX", &input),
         _ => {
             eprintln!("Invalid day specified");

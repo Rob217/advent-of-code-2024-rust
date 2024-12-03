@@ -25,20 +25,20 @@ if [[ ! $day =~ ^day[0-9]{2}$ ]]; then
     exit 1
 fi
 
-# download input data
-AOC_SESSION=$(<~/.config/aoc/token)
-if [[ -z "${AOC_SESSION-""}" ]]; then
-  echo \$AOC_SESSION not set
-  exit 1
-fi
+# # download input data
+# AOC_SESSION=$(<~/.config/aoc/token)
+# if [[ -z "${AOC_SESSION-""}" ]]; then
+#   echo \$AOC_SESSION not set
+#   exit 1
+# fi
 
-SCRIPT_DIR=$(realpath "$(dirname "$0")")
-mkdir -p "$SCRIPT_DIR/../inputs"
+# SCRIPT_DIR=$(realpath "$(dirname "$0")")
+# mkdir -p "$SCRIPT_DIR/../inputs"
 
-curl -s "https://adventofcode.com/2024/day/${day_number}/input" \
-    --cookie "session=$AOC_SESSION" \
-    -A "Bash script at $(git remote -v | awk 'NR==1{print $2}')" \
-    | tee "$SCRIPT_DIR/inputs/$day.in"
+# curl -s "https://adventofcode.com/2024/day/${day_number}/input" \
+#     --cookie "session=$AOC_SESSION" \
+#     -A "Bash script at $(git remote -v | awk 'NR==1{print $2}')" \
+#     | tee "$SCRIPT_DIR/inputs/$day.in"
 
 # make a new directory for the day using the template dayXX
 mkdir -p $day
@@ -55,3 +55,6 @@ sed -i '' "s/use dayXX;/use $day;\nuse dayXX;/" run_solution/src/main.rs
 
 # add match statement for $day in run_solution/src/main.rs
 sed -i '' "s/        \"dayXX\" => run_day(dayXX::part1, dayXX::part2, \"dayXX\", \&input)/        \"$day\" => run_day($day::part1, $day::part2, \"$day\", \&input),\n        \"dayXX\" => run_day(dayXX::part1, dayXX::part2, \"dayXX\", \&input)/" run_solution/src/main.rs
+
+# add $day = { path = "../$day" } to end of run_solution/Cargo.toml
+echo "$day = { path = \"../$day\" }" >> run_solution/Cargo.toml
