@@ -57,4 +57,4 @@ sed -i '' "s/use dayXX;/use $day;\nuse dayXX;/" run_solution/src/main.rs
 sed -i '' "s/        \"dayXX\" => run_day(dayXX::part1, dayXX::part2, \"dayXX\", \&input)/        \"$day\" => run_day($day::part1, $day::part2, \"$day\", \&input),\n        \"dayXX\" => run_day(dayXX::part1, dayXX::part2, \"dayXX\", \&input)/" run_solution/src/main.rs
 
 # add $day = { path = "../$day" } to end of run_solution/Cargo.toml
-echo "$day = { path = \"../$day\" }" >> run_solution/Cargo.toml
+echo "\n$day = { path = \"../$day\" }" >> run_solution/Cargo.toml

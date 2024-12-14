@@ -1,10 +1,10 @@
 
 pub fn part1(input: &Vec<String>) -> i64 {
-    42
+    0
 }
 
 pub fn part2(input: &Vec<String>) -> i64 {
-    84
+    0
 }
 
 
